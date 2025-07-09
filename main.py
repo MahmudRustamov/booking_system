@@ -38,3 +38,17 @@ def register_user(slots):
     if is_already_registered(slots, name):
         print("❌ Siz allaqachon ro‘yxatdan o‘tgansiz.")
         return
+    
+    while True:
+        show_available_slots(slots)
+        choice = input("🕒 Vaqt oralig'ini tanlang (masalan: 12:00–12:30): ").strip()
+        if choice not in slots:
+            print("⚠️ Bunday vaqt oralig‘i mavjud emas. Qayta urinib ko‘ring.")
+            continue
+        if len(slots[choice]) >= LIMIT:
+            print("⛔️ Bu vaqt to‘la. Iltimos boshqa vaqt tanlang.")
+            continue
+        slots[choice].append(name)
+        save_slots(slots)
+        print(f"✅ {name}, siz {choice} vaqt oralig‘iga muvaffaqiyatli ro‘yxatdan o‘tdingiz.")
+        break
