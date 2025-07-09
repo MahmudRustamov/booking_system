@@ -26,3 +26,9 @@ def show_available_slots(slots):
         free = LIMIT - len(people)
         status = f"{free} o‘rin bo‘sh" if free > 0 else "To‘la"
         print(f"{time} - {status}")
+
+def is_already_registered(slots, name):
+    for people in slots.values():
+        if name in people:
+            return True
+    return False
