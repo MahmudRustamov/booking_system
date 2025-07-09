@@ -32,3 +32,9 @@ def is_already_registered(slots, name):
         if name in people:
             return True
     return False
+
+def register_user(slots):
+    name = input("👤 Ismingiz: ").strip()
+    if is_already_registered(slots, name):
+        print("❌ Siz allaqachon ro‘yxatdan o‘tgansiz.")
+        return
