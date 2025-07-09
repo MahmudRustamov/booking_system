@@ -58,3 +58,27 @@ def show_all_registrations(slots):
     print("\n📋 Ro'yxatdan o'tganlar:")
     for time, people in slots.items():
         print(f"{time}: {', '.join(people) if people else '🚫 Bosh'}")
+        
+        
+def main():
+    slots = load_slots()
+
+    while True:
+        print("\n📌 MENYU")
+        print("1. Ro‘yxatdan o‘tish")
+        print("2. Barcha ro‘yxatlarni ko‘rish")
+        print("3. Dasturdan chiqish")
+
+        option = input("Tanlovingiz (1/2/3): ").strip()
+        if option == "1":
+            register_user(slots)
+        elif option == "2":
+            show_all_registrations(slots)
+        elif option == "3":
+            print("👋 Dasturdan chiqildi. Xayr!")
+            break
+        else:
+            print("⚠️ Noto‘g‘ri tanlov. Iltimos, 1, 2 yoki 3 ni tanlang.")
+
+if __name__ == "__main__":
+    main()
