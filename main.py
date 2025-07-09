@@ -15,3 +15,7 @@ def load_slots():
         with open(FILENAME, "r") as file:
             return json.load(file)
     return default_slots.copy()
+
+def save_slots(slots):
+    with open(FILENAME, "w") as file:
+        json.dump(slots, file, indent=4)
